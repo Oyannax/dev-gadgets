@@ -49,21 +49,29 @@ addBtn.addEventListener('click', function() {
 //////////
 const detailsTtls = document.querySelectorAll(".product-acrd-lnk");
 
-detailsTtls.forEach(ttl => {
-    ttl.addEventListener('click', function(event) {
+detailsTtls.forEach(title => {
+    title.addEventListener('click', function(event) {
         event.target.classList.toggle("closed");
         event.target.nextElementSibling.classList.toggle("hidden");
 
         if (event.target.dataset.ttl === "1") {
-            localStorage.setItem("ttl1ClassList", event.target.classList.value);
-            localStorage.setItem("list1ClassList", event.target.classList.value);
+            localStorage.setItem("ttl1ClassList", event.target.classList);
+            localStorage.setItem("list1ClassList", event.target.nextElementSibling.classList);
         } else {
-            localStorage.setItem("ttl2ClassList", event.target.classList.value);
-            localStorage.setItem("list2ClassList", event.target.classList.value);
+            localStorage.setItem("ttl2ClassList", event.target.classList);
+            localStorage.setItem("list2ClassList", event.target.nextElementSibling.classList);
         }
     })
 })
 
-// window.addEventListener('load', function() {
-    
-// })
+// window.addEventListener('load', detailsTtls.forEach(title => {
+//     if (title.dataset.ttl === "1") {
+//         const classArr = localStorage.getItem("ttl1ClassList");
+//         console.log(classArr)
+//         for (let i = 0; i < classArr.length; i++) {
+//             title.classList.add(classArr[i]);
+//         }
+//     }
+// }))
+
+//////////
