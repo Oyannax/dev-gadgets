@@ -23,3 +23,24 @@ imgList.addEventListener('mouseover', function(event) {
         displayedPic.src = `img/canard-jaune-${imgData}-l.png`;
     }
 })
+
+const cartQty = document.querySelector(".cart-nb");
+const addedQty = document.querySelector(".add-qty");
+const addBtn = document.querySelector(".add-cta");
+let counter = 0;
+
+addBtn.addEventListener('click', function() {
+    counter++;
+    if (addedQty.value > 99) {
+        cartQty.textContent = "99+";
+    } else {
+    cartQty.textContent = parseInt(addedQty.value);
+    }
+
+    if (counter === 1) {
+        this.disabled = true;
+        this.style.backgroundColor = "var(--background-dark)";
+        this.textContent = "Déjà au panier";
+        return;
+    }
+})
